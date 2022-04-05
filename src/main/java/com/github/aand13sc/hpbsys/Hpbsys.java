@@ -7,7 +7,6 @@ import java.util.Objects;
 public final class Hpbsys extends JavaPlugin {
 
     public static Hpbsys plugin = null;
-
     public static boolean NOW = false;
 
     @Override

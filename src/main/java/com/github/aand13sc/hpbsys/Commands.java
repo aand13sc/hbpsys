@@ -21,14 +21,25 @@ import java.util.List;
 public class Commands implements CommandExecutor, TabCompleter {
     public static String senderErrorMessage = "This command can't execute via server console!";
 
-    private static final String[] SUBCOMMANDS = { "head", "start", "end", "help" };
+    private static final String[] SUBCOMMANDS = { "head", "start", "end", "init", "help" };
 
     @Override
     public boolean onCommand(CommandSender sender, org.bukkit.command.Command cmd, String commandLabel, String[] args) {
         if (cmd.getName().equalsIgnoreCase("hapiba")) {
 
             if (args[0].equalsIgnoreCase("help")) {
-                sender.sendMessage("こいつなんもできないよw");
+                sender.sendMessage("\n" +
+                        ChatColor.RESET + ChatColor.GREEN + ChatColor.BOLD + "===== [hapiba] Command Help ===== \n" +
+                        ChatColor.RESET + ChatColor.RED + " /hapiba head <Player name> \n" +
+                        ChatColor.RESET + "   - Give Player head \n" +
+                        ChatColor.RESET + ChatColor.RED + " /hapiba start \n" +
+                        ChatColor.RESET + "   - Start hapiba. Adventure, Flying. Require OP. \n" +
+                        ChatColor.RESET + ChatColor.RED + " /hapiba end \n" +
+                        ChatColor.RESET + "   - End hapiba. Creative, Refuse syuyaku login. Require OP. \n" +
+                        ChatColor.RESET + ChatColor.RED + " /hapiba init \n" +
+                        ChatColor.RESET + "   - Initialize hapiba world. Require OP. \n" +
+                        ChatColor.RESET + ChatColor.RED + " /hapiba help \n" +
+                        ChatColor.RESET + "   - Show this message.");
                 return true;
             }
 
@@ -55,7 +66,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                         }
                     }
                 }
-                sender.sendMessage("[hapiba] init.");
+                sender.sendMessage("" + ChatColor.YELLOW + "[hapiba]" + ChatColor.RESET + " init.");
                 return true;
             }
 
@@ -77,7 +88,7 @@ public class Commands implements CommandExecutor, TabCompleter {
 
                 Hpbsys.NOW = true;
 
-                sender.sendMessage("[hapiba] start.");
+                sender.sendMessage("" + ChatColor.YELLOW + "[hapiba]" + ChatColor.RESET + " start.");
                 return true;
             }
 
@@ -91,7 +102,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                 }
                 Hpbsys.NOW = false;
 
-                sender.sendMessage("[hapiba] end.");
+                sender.sendMessage("" + ChatColor.YELLOW + "[hapiba]" + ChatColor.RESET + " end.");
                 return true;
             }
 
@@ -102,7 +113,7 @@ public class Commands implements CommandExecutor, TabCompleter {
                     return true;
                 }
                 if (args.length != 2) {
-                    sender.sendMessage("[hapiba] usage: /hapiba head <Player name>");
+                    sender.sendMessage("" + ChatColor.YELLOW + "[hapiba]" + ChatColor.RESET + " usage: /hapiba head <Player name>");
                     return true;
                 }
 
