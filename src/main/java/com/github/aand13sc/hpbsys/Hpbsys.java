@@ -8,6 +8,8 @@ public final class Hpbsys extends JavaPlugin {
 
     public static Hpbsys plugin = null;
 
+    public static boolean NOW = false;
+
     @Override
     public void onEnable() {
         plugin = this;
@@ -15,6 +17,7 @@ public final class Hpbsys extends JavaPlugin {
         Commands command = new Commands();
         Objects.requireNonNull(getCommand("hapiba")).setExecutor(command);
         Objects.requireNonNull(getCommand("hapiba")).setTabCompleter(command);
+        getServer().getPluginManager().registerEvents(new Event(this), this);
 
         saveDefaultConfig();
         Config.load();

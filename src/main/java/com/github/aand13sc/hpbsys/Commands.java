@@ -74,6 +74,9 @@ public class Commands implements CommandExecutor, TabCompleter {
                     target.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 1000000, 255,
                                     false, false, false));
                 }
+
+                Hpbsys.NOW = true;
+
                 sender.sendMessage("[hapiba] start.");
                 return true;
             }
@@ -86,6 +89,8 @@ public class Commands implements CommandExecutor, TabCompleter {
                         p.removePotionEffect(effect.getType());
                     }
                 }
+                Hpbsys.NOW = false;
+
                 sender.sendMessage("[hapiba] end.");
                 return true;
             }
