@@ -9,7 +9,7 @@ hapiba system
 
 ## usage
 
-init,
+init,///////
 ```text
 /hapiba init
 ```
